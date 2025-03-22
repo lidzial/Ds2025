@@ -29,8 +29,8 @@ users = pd.read_csv(data, sep="|", index_col=0)
 print(users.head())
 ```
 
-             age gender  occupation zip_code
-    user_id                                 
+    user_id age gender  occupation zip_code
+                                     
     1         24      M  technician    85711
     2         53      F       other    94043
     3         23      M      writer    32067
@@ -69,18 +69,11 @@ users.head(25)
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>user_id</th>
       <th>age</th>
       <th>gender</th>
       <th>occupation</th>
       <th>zip_code</th>
-    </tr>
-    <tr>
-      <th>user_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -292,18 +285,11 @@ users.tail(10)
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
+      <th>user_id</th>
       <th>age</th>
       <th>gender</th>
       <th>occupation</th>
       <th>zip_code</th>
-    </tr>
-    <tr>
-      <th>user_id</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -734,7 +720,6 @@ users.age.value_counts().tail()
     66    1
     10    1
     73    1
-    Name: count, dtype: int64
 
 
 
