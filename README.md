@@ -3,5 +3,6 @@ TEAM LEADER: Lidia Mordarska
 
 COLLABORATOR: Maurycy Słończewski-Mahlke
 
-[Data Wrangling Report](lab1.md).
+[Data Wrangling Report](lab2.md).
+[Data Cleansing Report](lab3.md).
 
