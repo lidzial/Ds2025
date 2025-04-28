@@ -337,7 +337,7 @@ p = plt.hist(df_pokemon['Attack'])
 
 
     
-![png](Exercise5_files/Exercise5_21_0.png)
+![png](/Exercise5_files/Exercise5_21_0.png)
     
 
 
