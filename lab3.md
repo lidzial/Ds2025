@@ -386,7 +386,7 @@ plt.show()
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_29_0.png)
+![png](Exercise3_files/1.png)
     
 
 
@@ -434,7 +434,7 @@ plt.show()
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_33_0.png)
+![png](Exercise3_files/2.png)
     
 
 
@@ -498,7 +498,7 @@ plt.show()
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_38_0.png)
+![png](Exercise3_files/3.png)
     
 
 
@@ -589,7 +589,7 @@ msno.matrix(dirty_iris);
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_46_0.png)
+![png](Exercise3_files/4.png)
     
 
 
@@ -610,7 +610,7 @@ msno.heatmap(dirty_iris);
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_48_0.png)
+![png](Exercise3_files/5.png)
     
 
 
@@ -633,7 +633,7 @@ msno.dendrogram(dirty_iris);
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_50_0.png)
+![png](Exercise3_files/6.png)
     
 
 
@@ -785,7 +785,7 @@ plt.show()
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_58_0.png)
+![png](Exercise3_files/7.png)
     
 
 
@@ -1539,7 +1539,7 @@ binning_table.plot(metric="woe")
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_84_0.png)
+![png](Exercise3_files/8.png)
     
 
 
@@ -1553,7 +1553,7 @@ binning_table.plot(metric="event_rate")
 
 
     
-![png](Exercise%204%20%281%29_files/Exercise%204%20%281%29_85_0.png)
+![png](Exercise3_files/9.png)
     
 
 
