@@ -7,4 +7,6 @@ COLLABORATOR: Maurycy Słończewski-Mahlke
 [Data Cleansing Report](lab3.md).
 [Data Visualisation Report1](Exercise5.md).
 [Data Visualisation Report2](Exercise6.md).
+[Univariate Analysis Report](Exercise8.md).
+[Bivariate Analysis Report](Exercise9.md).
 
