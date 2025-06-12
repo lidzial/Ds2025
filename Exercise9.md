@@ -882,16 +882,16 @@ DataFrame after preprocessing:
 
 
 DataFrame Info after preprocessing:
- #   Column             Non-Null Count  Dtype         
----  ------             --------------  -----         
- 0   Date               12 non-null     datetime64[ns]
- 1   Store_Type         12 non-null     category      
- 2   City_Type          12 non-null     category      
- 3   Day_Temp           12 non-null     float64       
- 4   No_of_Customers    12 non-null     float64       
- 5   Sales              12 non-null     float64       
- 6   Product_Quality_B  12 non-null     bool          
- 7   Product_Quality_C  12 non-null     bool    
+| # | Column            | Non-Null Count | Dtype          |
+|---|-------------------|----------------|----------------|
+| 0 | Date              | 12 non-null    | datetime64[ns] |
+| 1 | Store_Type        | 12 non-null    | category       |
+| 2 | City_Type         | 12 non-null    | category       |
+| 3 | Day_Temp          | 12 non-null    | float64        |
+| 4 | No_of_Customers   | 12 non-null    | float64        |
+| 5 | Sales             | 12 non-null    | float64        |
+| 6 | Product_Quality_B | 12 non-null    | bool           |
+| 7 | Product_Quality_C | 12 non-null    | bool           |
 
 
     
