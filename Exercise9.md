@@ -812,84 +812,143 @@ Load the "sales" dataset and perform the bivariate analysis together with necess
 
 
 ```python
-df_sales = pd.read_excel("sales.xlsx")
+df_sales = pd.read_excel("./sales.xlsx")
 df_sales.head(5)
+
+df_sales['Date'] = pd.to_datetime(df_sales['Date'])
+
+df_sales['Store_Type'] = df_sales['Store_Type'].astype('category')
+df_sales['City_Type'] = df_sales['City_Type'].astype('category')
+
+for col in ['Day_Temp', 'No_of_Customers', 'Sales']:
+    df_sales[col].fillna(df_sales[col].mean(), inplace=True)
+
+df_sales['Product_Quality'].fillna(df_sales['Product_Quality'].mode()[0], inplace=True)
+
+df_sales = pd.get_dummies(df_sales, columns=['Product_Quality'], drop_first=True)
+
+print("DataFrame after preprocessing:")
+print(df_sales.head().to_markdown(index=False, numalign="left", stralign="left"))
+print("\nDataFrame Info after preprocessing:")
+print(df_sales.info())
+
+numerical_cols = ['Day_Temp', 'No_of_Customers', 'Sales']
+plt.figure(figsize=(15, 5))
+plot_index = 1
+for i, col1 in enumerate(numerical_cols):
+    for j, col2 in enumerate(numerical_cols):
+        if i < j:
+            plt.subplot(1, 3, plot_index)
+            sns.scatterplot(x=df_sales[col1], y=df_sales[col2])
+            plt.title(f'{col1} vs {col2}')
+            plot_index += 1
+
+plt.tight_layout()
+plt.show()
+
+categorical_cols = ['Store_Type', 'City_Type']
+plt.figure(figsize=(15, 10))
+plot_index = 1
+for i, cat_col in enumerate(categorical_cols):
+    for j, num_col in enumerate(numerical_cols):
+        plt.subplot(len(categorical_cols), len(numerical_cols), plot_index)
+        sns.boxplot(x=df_sales[cat_col], y=df_sales[num_col])
+        plt.title(f'{cat_col} vs {num_col}')
+        plot_index += 1
+plt.tight_layout()
+plt.show()
+
+numerical_cols_with_dummies = numerical_cols + [col for col in df_sales.columns if 'Product_Quality_' in str(col)]
+correlation_matrix = df_sales[numerical_cols_with_dummies].corr()
+print("\nCorrelation Matrix:")
+print(correlation_matrix.to_markdown(numalign="left", stralign="left"))
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Correlation Matrix of Numerical Variables (including Product Quality Dummies)')
+plt.show()
 ```
 
 
 
-
-<div>
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Store_Type</th>
-      <th>City_Type</th>
-      <th>Day_Temp</th>
-      <th>No_of_Customers</th>
-      <th>Sales</th>
-      <th>Product_Quality</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2020-10-01</td>
-      <td>1</td>
-      <td>1</td>
-      <td>30.0</td>
-      <td>100.0</td>
-      <td>3112.0</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2020-10-02</td>
-      <td>2</td>
-      <td>1</td>
-      <td>32.0</td>
-      <td>115.0</td>
-      <td>3682.0</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2020-10-03</td>
-      <td>3</td>
-      <td>3</td>
-      <td>31.0</td>
-      <td>NaN</td>
-      <td>2774.0</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2020-10-04</td>
-      <td>1</td>
-      <td>2</td>
-      <td>29.0</td>
-      <td>105.0</td>
-      <td>3182.0</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2020-10-05</td>
-      <td>1</td>
-      <td>2</td>
-      <td>33.0</td>
-      <td>104.0</td>
-      <td>1368.0</td>
-      <td>B</td>
-    </tr>
-  </tbody>
-</table>
+DataFrame after preprocessing:
+<div style="display: table; width: 100%; border-collapse: collapse;">
+  <div style="display: table-row; background-color: #f2f2f2; font-weight: bold;">
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Date</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Store_Type</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">City_Type</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Day_Temp</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">No_of_Customers</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Sales</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Product_Quality_B</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Product_Quality_C</div>
+  </div>
+  <div style="display: table-row;">
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-01 00:00:00</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">30</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">100</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3112</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+  </div>
+  <div style="display: table-row;">
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-02 00:00:00</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">32</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">115</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3682</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+  </div>
+  <div style="display: table-row;">
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-03 00:00:00</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">31</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">99.4444</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2774</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+  </div>
+  <div style="display: table-row;">
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-04 00:00:00</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">29</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">105</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3182</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+  </div>
+  <div style="display: table-row;">
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-05 00:00:00</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">33</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">104</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">True</div>
+    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
+  </div>
 </div>
 
 
+    
+![png](Exercise9%20%281%29_files/plotup1.png)
+    
+
+
+
+    
+![png](Exercise9%20%281%29_files/plotup2.png)
+    
+
+
+
+    
+![png](Exercise9%20%281%29_files/plotup3.png)
 
 # Summary
 
