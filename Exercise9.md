@@ -872,67 +872,26 @@ plt.show()
 
 
 DataFrame after preprocessing:
-<div style="display: table; width: 100%; border-collapse: collapse;">
-  <div style="display: table-row; background-color: #f2f2f2; font-weight: bold;">
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Date</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Store_Type</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">City_Type</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Day_Temp</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">No_of_Customers</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Sales</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Product_Quality_B</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">Product_Quality_C</div>
-  </div>
-  <div style="display: table-row;">
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-01 00:00:00</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">30</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">100</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3112</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-  </div>
-  <div style="display: table-row;">
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-02 00:00:00</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">32</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">115</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3682</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-  </div>
-  <div style="display: table-row;">
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-03 00:00:00</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">31</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">99.4444</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2774</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-  </div>
-  <div style="display: table-row;">
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-04 00:00:00</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">29</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">105</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">3182</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-  </div>
-  <div style="display: table-row;">
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2020-10-05 00:00:00</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">1</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">2</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">33</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">104</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">True</div>
-    <div style="display: table-cell; padding: 8px; border: 1px solid #ddd; text-align: left;">False</div>
-  </div>
-</div>
+| Date                | Store_Type   | City_Type   | Day_Temp   | No_of_Customers   | Sales   | Product_Quality_B   | Product_Quality_C   |
+|:--------------------|:-------------|:------------|:-----------|:------------------|:--------|:--------------------|:--------------------|
+| 2020-10-01 00:00:00 | 1            | 1           | 30         | 100               | 3112    | False               | False               |
+| 2020-10-02 00:00:00 | 2            | 1           | 32         | 115               | 3682    | False               | False               |
+| 2020-10-03 00:00:00 | 3            | 3           | 31         | 99.4444           | 2774    | False               | False               |
+| 2020-10-04 00:00:00 | 1            | 2           | 29         | 105               | 3182    | False               | False               |
+| 2020-10-05 00:00:00 | 1            | 2           | 33         | 104               | 1368    | True                | False               |
+
+
+DataFrame Info after preprocessing:
+ #   Column             Non-Null Count  Dtype         
+---  ------             --------------  -----         
+ 0   Date               12 non-null     datetime64[ns]
+ 1   Store_Type         12 non-null     category      
+ 2   City_Type          12 non-null     category      
+ 3   Day_Temp           12 non-null     float64       
+ 4   No_of_Customers    12 non-null     float64       
+ 5   Sales              12 non-null     float64       
+ 6   Product_Quality_B  12 non-null     bool          
+ 7   Product_Quality_C  12 non-null     bool    
 
 
     
@@ -945,6 +904,15 @@ DataFrame after preprocessing:
 ![png](Exercise9%20%281%29_files/plotup2.png)
     
 
+
+Correlation Matrix:
+|                   | Day_Temp   | No_of_Customers   | Sales     | Product_Quality_B   | Product_Quality_C   |
+|:------------------|:-----------|:------------------|:----------|:--------------------|:--------------------|
+| Day_Temp          | 1          | 0.765569          | -0.178471 | 0.229061            | -0.200545           |
+| No_of_Customers   | 0.765569   | 1                 | -0.120426 | 0.152963            | -0.442825           |
+| Sales             | -0.178471  | -0.120426         | 1         | -0.449874           | 0.444377            |
+| Product_Quality_B | 0.229061   | 0.152963          | -0.449874 | 1                   | -0.174078           |
+| Product_Quality_C | -0.200545  | -0.442825         | 0.444377  | -0.174078           | 1                   |
 
 
     
